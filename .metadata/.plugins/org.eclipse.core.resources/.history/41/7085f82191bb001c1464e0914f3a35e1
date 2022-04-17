@@ -1,0 +1,21 @@
+/*
+ * funcion.c
+ *
+ *  Created on: 13 abr 2022
+ *      Author: ayrto
+ */
+#include <stdio.h>
+#include <stdlib.h>
+
+int menu(void){
+	printf("1- Ingrese los Kilometros. \n"
+		   "2- Ingrese el precio de vuelos\n"
+		   "3- Calculo de todos los costos. \n"
+		   "4- Resultados informados. \n"
+		   "5- Carga forzada de datos \n"
+		   "6- Salir \n"
+		   "Ingrese la opcion deseada: ");
+
+	return 0;
+
+

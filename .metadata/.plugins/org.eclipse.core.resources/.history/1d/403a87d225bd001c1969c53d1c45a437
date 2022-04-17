@@ -1,0 +1,19 @@
+/*
+ * funciones.c
+ *
+ *  Created on: 15 abr 2022
+ *      Author: ayrto
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+float debito(float precio){
+float descuento;
+
+descuento = (float) precio * 10/100;
+descuento = precio - descuento;
+
+
+return descuento;
+}

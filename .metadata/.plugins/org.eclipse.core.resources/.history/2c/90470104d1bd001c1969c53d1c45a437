@@ -1,0 +1,115 @@
+/*
+ ============================================================================
+ Name        : tp_n1.c
+ Author      : 
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "datos.h"
+
+int main(void)
+{
+	setbuf(stdout, NULL);
+	int contador;
+	int respuesta;
+	int kmIngresados;
+	float precioVueloAerolineas;
+	float precioVueloLatam;
+	float debitoLatam;
+	float debitoAerolineas;
+	float creditoLatam;
+	float creditoAerolineas;
+	float bitcoinLatam;
+	float bitcoinAerolineas;
+	float precioKmLatam;
+	float precioKmAerolineas;
+	float diferenciaPrecios;
+
+
+	do
+	{
+		menu();
+
+		scanf("%d", &respuesta);
+
+		switch(respuesta)
+		{
+		case 1:
+			printf("\n Ingrese los kilómetros deseados");
+			scanf("%d", &kmIngresados);
+			break;
+
+		case 2:
+			printf("\n Ingrese el precio del vuelo de Aerolineas")
+			scanf("%f", &precioVueloAerolineas);
+
+			printf("\n Ingrese el precio del vuelo de Latam")
+			scanf("%f", &precioVueloLatam);
+			break;
+
+		case 3:
+			if(precioVueloAerolineas < 1 && precioVueloLatam < 1 && kmIngresados < 1)
+			{
+				printf("Error, los datos ingresados deben ser mayores a 1\n");
+			}
+			else
+			{
+				debitoLatam = debito(precioVueloLatam);
+				debitoAerolineas = debito(precioVueloAerolineas);
+				creditoLatam = credito(precioVueloLatam);
+				creditoAerolineas = credito(precioVueloAerolineas);
+				bitcoinLatam = bitcoin(precioVueloLatam);
+				bitcoinAerolineas = bitcoin(precioVueloAerolineas);
+				precioKmLatam = precioKm(precioVueloLatam, kmIngresados);
+				precioKmAerolineas = precioKm(precioVueloAerolineas, kmIngresados);
+				diferenciaPrecios = diferenciaPrecio(precioVueloLatam, precioVueloAerolineas);
+				contador=1;
+			}
+			break;
+
+		case 4:
+			if(contador == 0)
+			{
+				printf("Error, no se pueden realizar cálculos.\n");
+			}
+			else
+			{
+				datos(debitoLatam,creditoLatam,debitoAerolineas,creditoAerolineas,bitcoinLatam,bitcoinAerolineas);
+			}
+			break;
+
+		case 5:
+
+			kmIngresados = 7090;
+			precioVueloAerolineas = 162965;
+			precioVueloLatam = 159339;
+
+			debitoLatam = debito(precioVueloLatam);
+			creditoLatam = credito(precioVueloLatam);
+			bitcoinLatam = bitcoin(precioVueloLatam);
+
+			debitoAerolineas = debito(precioVueloAerolineas);
+			creditoAerolineas = credito(precioVueloAerolineas);
+			bitcoinAerolineas = bitcoin(precioVueloAerolineas);
+
+			precioKmLatam = precioKm(precioVueloLatam, kmIngresados);
+            precioKmAerolineas = precioKm(precioVueloAerolineas, kmIngresados);
+            diferenciaPrecios = diferenciaPrecio(precioVueloAerolineas, precioVueloLatam);
+
+            break;
+
+            default:
+                printf("Fin");
+
+
+		}
+	} while (respuesta != 6);
+
+    return 0;
+
+}
